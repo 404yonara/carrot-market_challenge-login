@@ -2,7 +2,7 @@ import { InputHTMLAttributes } from "react";
 
 interface InputProps {
   name: string;
-  errors?: string[];
+  errors?: string[] | null;
   kind?: "Email" | "Username" | "Password";
 }
 
@@ -67,11 +67,12 @@ const Input = ({
         className="w-full h-10 transition bg-transparent border-none rounded-3xl focus:outline-none ring-1 focus:ring-2 ring-neutral-200 focus:ring-gray-300 focus:ring-offset-4 placeholder:text-neutral-400 pl-10"
         {...rest}
       />
-      {errors.map((error, index) => (
-        <span key={index} className="font-medium text-red-500">
-          {error}
-        </span>
-      ))}
+      {errors &&
+        errors.map((error, index) => (
+          <span key={index} className="font-medium text-red-500">
+            {error}
+          </span>
+        ))}
     </div>
   );
 };

@@ -12,7 +12,7 @@ const Login = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   useEffect(() => {
-    if (state?.success) {
+    if (!state) {
       setShowSuccessMessage(true);
       const timer = setTimeout(() => {
         setShowSuccessMessage(false);
@@ -29,6 +29,7 @@ const Login = () => {
           required
           placeholder="Email"
           kind="Email"
+          errors={state?.fieldErrors.email}
         />
         <FormInput
           name="username"
@@ -36,6 +37,7 @@ const Login = () => {
           required
           placeholder="Username"
           kind="Username"
+          errors={state?.fieldErrors.username}
         />
         <FormInput
           name="password"
@@ -43,7 +45,7 @@ const Login = () => {
           required
           placeholder="Password"
           kind="Password"
-          errors={state?.errors}
+          errors={state?.fieldErrors.password}
         />
         <FormButton text="Log in" />
       </form>
