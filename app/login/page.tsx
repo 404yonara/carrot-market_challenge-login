@@ -1,7 +1,7 @@
 "use client";
 
-import FormInput from "@/components/input";
-import FormButton from "@/components/button";
+import Input from "@/components/input";
+import Button from "@/components/button";
 import SocialLogin from "@/components/social-login";
 import { useFormState } from "react-dom";
 import { handleForm } from "./actions";
@@ -23,7 +23,7 @@ const Login = () => {
   return (
     <div className="flex flex-col gap-10 px-6 pt-36 pb-8">
       <form action={dispatch} className="flex flex-col gap-4">
-        <FormInput
+        <Input
           name="email"
           type="email"
           required
@@ -31,7 +31,7 @@ const Login = () => {
           kind="Email"
           errors={state?.fieldErrors.email}
         />
-        <FormInput
+        <Input
           name="username"
           type="string"
           required
@@ -39,7 +39,7 @@ const Login = () => {
           kind="Username"
           errors={state?.fieldErrors.username}
         />
-        <FormInput
+        <Input
           name="password"
           type="password"
           required
@@ -47,7 +47,7 @@ const Login = () => {
           kind="Password"
           errors={state?.fieldErrors.password}
         />
-        <FormButton text="Log in" />
+        <Button text="Log in" />
       </form>
       {showSuccessMessage && (
         <div className="flex items-center p-4 gap-3 text-white bg-green-600 rounded-xl">
