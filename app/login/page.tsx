@@ -4,15 +4,15 @@ import Input from "@/components/input";
 import Button from "@/components/button";
 import SocialLogin from "@/components/social-login";
 import { useFormState } from "react-dom";
-import { handleForm } from "./actions";
+import { login } from "./actions";
 import { useEffect, useState } from "react";
 
 const Login = () => {
-  const [state, dispatch] = useFormState(handleForm, null);
+  const [state, dispatch] = useFormState(login, null);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   useEffect(() => {
-    if (!state) {
+    if (state) {
       setShowSuccessMessage(true);
       const timer = setTimeout(() => {
         setShowSuccessMessage(false);
@@ -30,14 +30,6 @@ const Login = () => {
           placeholder="Email"
           kind="Email"
           errors={state?.fieldErrors.email}
-        />
-        <Input
-          name="username"
-          type="string"
-          required
-          placeholder="Username"
-          kind="Username"
-          errors={state?.fieldErrors.username}
         />
         <Input
           name="password"
