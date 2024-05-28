@@ -13,6 +13,18 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      backgroundColor: {
+        "vin-white": "#FEFAF6",
+        "vin-pale": "#EADBC8",
+        "vin-oat": "#DAC0A3",
+        "vin-navy": "#102C57",
+      },
+      textColor: {
+        "vin-white": "#FEFAF6",
+        "vin-pale": "#EADBC8",
+        "vin-oat": "#DAC0A3",
+        "vin-navy": "#102C57",
+      },
     },
   },
   plugins: [],
