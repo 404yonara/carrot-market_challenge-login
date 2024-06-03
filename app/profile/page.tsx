@@ -2,6 +2,8 @@ import getSession from "@/lib/session";
 import db from "@/lib/db";
 import { notFound, redirect } from "next/navigation";
 import Button from "@/components/button";
+import Link from "next/link";
+import { HomeIcon } from "@heroicons/react/24/solid";
 
 async function getUser() {
   const session = await getSession();
@@ -45,6 +47,12 @@ export default async function Profile() {
       <form className="flex w-full" action={logOut}>
         <Button text="Log Out" />
       </form>
+      <Link
+        href="/"
+        className="fixed flex items-center justify-center text-white transition-colors bg-orange-500 rounded-full size-16 bottom-24 right-8 hover:bg-orange-400"
+      >
+        <HomeIcon className="h-10" />
+      </Link>
     </div>
   );
 }
